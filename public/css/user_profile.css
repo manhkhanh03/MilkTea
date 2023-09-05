@@ -1,0 +1,410 @@
+* {
+    background-size: cover !important;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+section {
+    margin: 126px 0;
+}
+
+.container__profile {
+    width: 80%;
+    display: flex;
+
+}
+
+.nav-profile {
+    width: 30%;
+    margin: 0 20px;
+    overflow: hidden;
+    height: max-content;
+}
+
+.nav-profile .__header.img-user {
+    display: flex;
+    align-items: center !important;
+}
+
+.nav-profile .__header.img-user .img-user__img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    padding: 2px;
+    border: 1px solid var(--color-title);
+    margin-right: 6px;
+    position: relative;
+    overflow: hidden;
+}
+
+.info-profile {
+    width: 70%;
+    margin: 0 20px;
+}
+
+.nav-profile .__header.img-user,
+.info-profile .__header {
+    border-bottom: 1px solid var(--color-title);
+    padding-bottom: 10px;
+}
+
+.list-nav__profile {
+    padding: 20px 10px;
+}
+
+.nav__profile-item {
+    width: 100%;
+    cursor: pointer;
+    position: relative;
+}
+
+.__profile-item__name {
+    display: flex;
+    align-items: center;
+    padding: 10px 10px;
+    transition: all 0.25s ease;
+}
+
+.__profile-item__name i {
+    margin-right: 10px;
+}
+
+.__profile-item__name:hover {
+    background-color: var(--color-title);
+}
+
+.nav__profile-item .list__item {
+    position: relative;
+    left: 20%;
+}
+
+.nav__profile-item .list__item-item {
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+.nav__profile-item .list__item-item:hover {
+    background-color: var(--color-title);
+    color: var(--color-white);
+}
+
+.nav__profile-item .list__item-item.active:hover button {
+    color: var(--color-white);
+}
+
+.nav__profile-item .list__item-item.active button {
+    color: var(--color-title);
+}
+
+.__item-item__btn {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+#form-information .form-label {
+    color: var(--color-title);
+    top: -10px;
+    font-size: 16px;
+}
+
+#btn-save-profile {
+    background-color: transparent;
+    border: 1px solid var(--color-title);
+    border-radius: 4px;
+    outline: none;
+    cursor: pointer;
+    padding: 4px 10px;
+    transition: all 0.25s ease;
+}
+
+#btn-save-profile:hover {
+    background-color: var(--color-title);
+}
+
+.label-input {
+    position: absolute;
+    bottom: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    cursor: pointer;
+    color: transparent;
+    background-color: transparent;
+}
+
+#file-upload {
+    position: absolute;
+    bottom: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    cursor: pointer;
+    color: transparent;
+    background-color: transparent;
+    display: none;
+}
+
+.list__item-item a {
+    padding: 6px;
+    display: block;
+    width: 100%;
+}
+
+.info-profile .bank {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.info-profile .bank .bank-btn {
+    background-color: transparent;
+    border: 1px solid var(--color-title);
+    width: max-content;
+    padding: 0 10px;
+    height: 36px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    transition: all 0.25s ease;
+    cursor: pointer;
+}
+
+.info-profile .bank .bank-btn:hover {
+    background-color: var(--color-title);
+}
+
+.info-profile .bank .bank-btn .img {
+    width: 20px;
+    height: 20px;
+    display: block;
+    margin-right: 10px;
+}
+
+.nav__profile-item.active i,
+.nav__profile-item.active p {
+    /* background-color: var(--color-title); */
+    color: var(--color-title);
+}
+
+.nav__profile-item.active:hover i,
+.nav__profile-item.active:hover p {
+    color: var(--color-white);
+}
+
+/* Purchase Order */
+.purchase-order__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 26px 0;
+}
+
+.purchase-order__header .__header-item a {
+    transition: all 0.25s ease;
+}
+
+.purchase-order__header .__header-item:hover a {
+    color: var(--color-title);
+}
+
+.purchase-order__header .__header-item.active a {
+    color: var(--color-title);
+}
+
+.list-products__order {
+    margin-top: 30px;
+}
+
+.list-products__order .__order-item {
+    padding: 20px 0;
+}
+
+.__order-item__status {
+    color: var(--color-title);
+    border-bottom: 1px solid var(--color-title);
+    padding: 0 0 6px 0;
+}
+
+.__status__info-order {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.__info-order__decription {
+    width: 80%;
+}
+
+.__info-order__decription {
+    display: flex;
+    width: 100%;
+    justify-content: left;
+}
+
+.__decription__img {
+    width: 84px;
+    height: 84px;
+    margin-right: 20px;
+}
+
+.__decription__decription {
+    width: 80%;
+}
+
+.__decription__decription .name {
+    font-size: 16px;
+    font-weight: 400;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+}
+
+.__decription__decription .flavor,
+.__decription__decription .size,
+.__decription__decription .quantity {
+    font-size: 14px;
+}
+
+.__info-order__price {
+    color: var(--color-title);
+}
+
+.__detail__total {
+    width: 100%;
+    text-align: right;
+    margin-top: 20px;
+    padding: 10px 0;
+    border-top: 1px solid var(--color-title);
+}
+
+.__detail__total .__total {
+    margin: 0 0 10px;
+    font-size: 20px;
+}
+
+.__detail__total button {
+    background-color: transparent;
+    border: 1px solid var(--color-title);
+    outline: none;
+    padding: 6px 12px;
+    margin: 0 10px;
+    cursor: pointer;
+}
+
+.__detail__total button.buy-again {
+    background-color: var(--color-title);
+    color: var(--color-white);
+}
+
+/* Detail shipping */
+.__detail-shipping {
+    display: flex;
+    justify-content: left;
+}
+
+.__detail-shipping__info-user {
+    width: 32%;
+}
+
+.__detail-shipping__info-user p {
+    padding: 6px 0;
+    color: #adadad;
+    font-size: 14px;
+}
+
+.__detail-shipping__info-user p:nth-child(1) {
+    font-size: 16px;
+}
+
+.__detail-shipping__shipping {
+    width: 60%;
+    border-left: 1px solid var(--color-title);
+    padding-left: 10px;
+}
+
+.__detail-shipping__shipping .__shipping-box{
+    display: flex;
+    margin: 20px 0;
+}
+
+.__detail-shipping__shipping .__shipping-box p {
+    color: #adadad;
+}
+
+.__detail-shipping__shipping .__shipping-box .datetime {
+    width: 40%;
+}
+
+.__detail-shipping__shipping .__shipping-box .description {
+    width: 60%;
+}
+
+/* Notifications */
+.noti {
+    margin-top: 30px;
+}
+
+/* register account */
+.list-role-user {
+    margin-top: 30px;
+}
+
+.role-user__item {
+    /* display: flex;
+    justify-content: space-between;
+    padding: 10px 20px;
+    align-items: center;
+    position: relative;
+    border: 1px solid var(--color-title);
+     */
+     /* margin: 30px 0; */
+}
+
+.box-role-user__item {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 20px;
+    align-items: center;
+    position: relative;
+    border: 1px solid var(--color-title);
+    margin: 30px 0;
+}
+
+.role-user__item .__name,
+.__update__update,
+.__update .__other  {
+    color: var(--color-title);
+}
+
+.role-user__item button {
+    background-color: transparent;
+    border: 1px solid var(--color-title);
+    padding: 6px 10px;
+    margin-left: 6px;
+    cursor: pointer;
+}
+
+.permission-user {
+    position: relative;
+    bottom: 31px;
+    width: 100%;
+    border: 1px solid var(--color-title);
+    padding: 20px 40px;
+    list-style: disc;
+    display: none;
+}
+
+.permission-user li {
+    color: var(--color-title);
+}
+
+.role-user__item .__update__update.not-active {
+    cursor: auto;
+    color: #b1b1b1;
+    border: 1px solid #b1b1b1;
+}

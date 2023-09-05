@@ -1,0 +1,122 @@
+.container__child-product {
+    /* display: flex; */
+    /* flex-wrap: wrap; */
+    width: 70%;
+    height: max-content;
+    justify-content: space-between;
+}
+
+li.container__child-product__item {
+    /* flex-basis: 23.33333%; */
+    height: 432.4px;
+    position: relative;
+    transition: all .25s ease;
+    overflow: hidden;
+    width: 23%;
+    display: inline-block;
+    margin: 0 9px 20px;
+}
+
+li.container__child-product__item:hover {
+    border: 1px solid var(--color-title);
+    transition: all .25s ease;
+    padding: 4px;
+}
+
+li.container__child-product__item:hover .container__child-product__item-img {
+    transform: scale(1.25);
+}
+
+li.container__child-product__item:hover .description__price-total {
+    width: 96%;
+}
+
+.container__child-product__item-img {
+    /* background-image: url(https://toigingiuvedep.vn/wp-content/uploads/2021/06/hinh-anh-tra-sua-dep-xinh.jpg); */
+    height: 270px;
+    display: block;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    transition: all .25s ease;
+    overflow-y: hidden;
+}
+
+li.container__child-product__item .description__price-total {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    bottom: 0;
+    transition: all .25s ease;
+}
+
+.container__child-pagination {
+    margin: 30px 0;
+    width: max-content;
+    display: flex;
+    justify-content: space-between;
+}
+
+li.container__child-pagination__item,
+.container__child-pagination__item {
+    color: var(--color-light);
+    position: relative;
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    margin: 0 30px;
+}
+
+li.container__child-pagination__item i {
+    color: var(--color-light);
+}
+
+li.container__child-pagination__item::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    border: 1px solid var(--color-title);
+    transition: all .3s ease;
+}
+
+li.container__child-pagination__item:hover.container__child-pagination__item::after {
+    background-color: var(--color-title);
+    content: '';
+    position: absolute;
+    transform: rotate(135deg);
+    z-index: -1;
+}
+
+li.container__child-pagination__item:hover,
+li.container__child-pagination__item:hover.container__child-pagination__item i {
+    color: var(--color-black);
+}
+
+
+li.container__child-pagination__item.active {
+    background-color: var(--color-title);
+    color: var(--color-black);
+    transition: all .3s ease;
+    transition-delay: .3s;
+}
+
+li.container__child-product__item.active {
+    display: block;
+}
+
+li.container__child-pagination__item.active.container__child-pagination__item::after {
+    transform: rotate(0);
+}
+
+.container__child-pagination__item.__other::before {
+    content: '...';
+    text-align: center;
+    transform: rotate(0);
+}

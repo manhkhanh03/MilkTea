@@ -1,0 +1,203 @@
+:root {
+    --color-white: #ffffff;
+    --color-black: #000000;
+    --color-title: #c8a16d;
+    --color-light: #999999;
+    --color-warning: #ff1919;
+    --background-white: #fff;
+    --background-black: #000;
+    --font-family-title: "Great Vibes", cursive;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    color: var(--color-white);
+    /* background-color: #181818; */
+    font-family: "Poppins",
+        Arial,
+        sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: url(https://preview.colorlib.com/theme/coffeeblend/images/bg_4.jpg.webp) no-repeat fixed;
+    background-size: cover;
+    overflow-x: hidden;
+}
+
+ul,
+ol {
+    list-style: none;
+}
+
+a {
+    color: var(--color-white);
+    text-decoration: none;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    appearance: none;
+    -moz-appearance: textfield;
+    margin: 0;
+}
+
+input[type="checkbox"] {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 16px;
+    height: 16px;
+    border: 1px solid var(--color-title);
+    accent-color: var(--color-title);
+    position: relative;
+    margin-right: 10px;
+    border-radius: 4px;
+}
+
+input[type="checkbox"]:checked {
+    background-color: var(--color-title);
+}
+
+input[type="checkbox"]:checked:before {
+    content: '✔';
+    width: 100%;
+    height: 100%;
+    color: var(--color-white);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-37%, -63%);
+}
+
+.green {
+    color: #23cd2c;
+}
+
+.yellow {
+    color: var(--color-title);
+}
+
+/* active */
+menu.active {
+    position: fixed;
+    background: #151111 !important;
+}
+
+/* Menu */
+menu {
+    width: 100%;
+    height: 90px;
+    padding: 20px 12%;
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: #00000000;
+    z-index: 3;
+    transition: all 0.5s ease-out;
+}
+
+menu .menu__logo img {
+    width: 200px;
+}
+
+.menu__navbar {
+    display: flex;
+    width: 56%;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 18px;
+}
+
+.menu__navbar-item {
+    position: relative;
+}
+
+.menu__navbar-item a:hover {
+    color: var(--color-title);
+    transition: all .25s ease;
+}
+
+.login__user {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login__user .icon {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+}
+
+section {
+    width: 100%;
+    margin: 78px 0;
+    height: max-content;
+    /* display: flex;
+    align-items: center; */
+}
+
+.container {
+    width: 100%;
+    justify-content: center;
+    display: flex;
+    height: 100%;
+}
+
+.login__user {
+    position: relative;
+    cursor: pointer;
+}
+
+.menu__navbar-item__icon,
+.parent-login-user {
+    position: relative;
+}
+
+.menu__navbar__logout-and-info-user {
+    width: max-content;
+    position: absolute;
+    /* bottom: -80px; */
+    top: 34px;
+    left: 0;
+    background-color: var(--background-black);
+    border: 1px solid var(--color-title);
+    border-radius: 6px;
+    display: none;
+}
+
+.parent-login-user:hover .menu__navbar__logout-and-info-user {
+    display: block;
+}
+
+.parent-login-user:hover .menu__navbar__logout-and-info-user::after {
+    content: '';
+    width: 100%;
+    height: 30px;
+    position: absolute;
+    top: -16px;
+    background-color: transparent;
+}
+
+.__information-user {
+    padding: 4px 10px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+.__information-user:hover {
+    background-color: var(--color-title);
+}
+
+.__information-user a:hover {
+    color: var(--color-white);
+}

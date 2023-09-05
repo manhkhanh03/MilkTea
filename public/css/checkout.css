@@ -1,0 +1,123 @@
+.__checkout {
+    width: 60%;
+    background-color: var(--color-black);
+    padding: 30px;
+}
+
+.form-group {
+    position: relative;
+}
+
+.form-label {
+    /* display: block; */
+    position: absolute;
+    top: 25px;
+    left: 10px;
+    font-size: 14px;
+    transition: all .3s ease;
+    color: #f0f8ff00;
+    z-index: -1;
+}
+
+.__checkout input {
+    background-color: transparent;
+    border: 1px solid var(--color-title);
+    outline: none;
+    border-radius: 6px;
+    width: 100%;
+    height: 36px;
+    margin: 10px 0 20px;
+    padding: 4px 10px;
+}
+
+.form-group {
+    margin: 20px 0;
+    position: relative;
+}
+
+.form-label {
+    position: absolute;
+    top: 25px;
+    left: 10px;
+    font-size: 14px;
+    transition: all .3s ease;
+    color: #f0f8ff00;
+    z-index: 0;
+}
+
+.form-input {
+    width: 100%;
+    height: 40px;
+    margin: 16px 0;
+    padding: 14px 10px;
+    background-color: #f0f8ff00;
+    outline: none;
+    border: 1px solid var(--color-title);
+    border-radius: 12px;
+    color: var(--color-white);
+    position: relative;
+    z-index: 2;
+}
+
+.form-message {
+    color: var(--color-warning);
+    position: absolute;
+    font-size: 12px;
+    top: 46px;
+}
+
+.container__cart-total {
+    width: 28%;
+    /* justify-content: right; */
+    display: flex;
+    margin: 0 30px;
+}
+
+section {
+    margin: 78px 0 0 0;
+}
+
+.container__cart-total .box-price {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    padding: 10px 0;
+}
+
+.container__cart-total .box-price.total {
+    border-top: 1px solid #898989;
+}
+
+.container__cart-total .box-price p {
+    color: #a2a2a2;
+}
+
+.container__cart-total .box-input__pay {
+    display: flex;
+    margin: 10px 0;
+    align-items: center;
+
+}
+
+.container__cart-total .box-input__pay p {
+    color: #898989;
+}
+
+.container__cart-total .box-input__pay input {
+    margin-right: 6px;
+}
+
+.btn-checkout {
+    width: 100%;
+    height: 30px;
+    background-color: transparent;
+    border: 1px solid var(--color-title);
+    border-radius: 4px;
+    margin-top: 10px;
+    transition: all .25s ease;
+    cursor: pointer;
+}
+
+.btn-checkout:hover {
+    background-color: var(--color-title);
+}

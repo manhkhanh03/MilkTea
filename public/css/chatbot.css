@@ -1,0 +1,141 @@
+.chatbot_box {
+    width: 70%;
+}
+.heading-chatbot {
+}
+.subheading {
+    font-size: 12px;
+    font-weight: 400;
+}
+.message-function {
+    margin: 30px 0;
+    height: 40px;
+    display: flex;
+    justify-content: flex-start;
+}
+.message-function .auto {
+
+}
+.message-function .quick {
+}
+
+.message-function div {
+    width: max-content;
+    padding: 8px 16px;
+    position: relative;
+    height: 100%;
+    cursor: pointer;
+    transition: all 0.25s ease-in-out;
+}
+
+.message-function .active a {
+    color: var(--color-title);
+
+}
+
+.message-function div.active::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 2px;
+    background-color: var(--color-title);
+    border-radius: 6px;
+}
+
+.noti-chatbot {
+    border: 1px solid var(--color-title);
+    background-color: #ffcd8a30;
+    padding: 6px 12px;
+}
+
+.form-message {
+    display: flex;
+    justify-content: flex-start;
+    margin: 30px 0;
+}
+
+.message-icon {}
+
+.message-icon img {
+    width: 50px;
+    height: 50px;
+    margin: 0 30px;
+}
+
+.message-main {
+    width: 100%;
+}
+
+.message-title {
+    font-size: 20px;
+}
+
+.message-subtitle {
+    font-size: 12px;
+}
+
+.message-settings {
+    margin: 30px 0 0 0;
+    border: 1px solid var(--color-title);
+}
+
+.message-setting-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+.message-setting-info .text {
+    font-size: 20px;
+}
+
+.message-setting-info .button-button {
+    display: flex;
+    align-items: center;
+}
+
+.button-edit-message {}
+
+.fa-regular {}
+
+.fa-pen-to-square {}
+
+.button-on-off {
+    position: relative;
+    width: 46px;
+    height: 20px;
+    background-color: #474747;
+    border-radius: 10px;
+    margin-left: 20px;
+    cursor: pointer;
+    transition: all .25s ease;
+}
+
+.button-on-off::before {
+    content: '';
+    background-color: #fff;
+    width: 18px;
+    height: 16px;
+    position: absolute;
+    left: 4px;
+    border-radius: 50%;
+    translate: -10% 12%;
+}
+
+.button-on-off.active {
+    background-color: #2a8d58;
+}
+
+.button-on-off.active::before {
+    right: 0;
+    left: auto;
+}
+
+.message-demo {
+    padding: 10px 30px;
+    border-top: 1px solid var(--color-title);
+    color: #7f7f7f;
+}
