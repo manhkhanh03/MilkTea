@@ -49,7 +49,7 @@
                     </ul>
                 @endif
             </div>
-    
+
             <div class="container__information-product">
                 <div class="__information-product__name">{{$product->name}}</div>
                 <ul class="__information-product__assessment">
@@ -58,19 +58,19 @@
                 </ul>
                 <div class="__information-product">
                     <span class="price" style="color: var(--color-title);">{{count($product->sizes) - 1 == 0 ? '' : $product->sizes[count($product->sizes) - 1]->price. '$' . ' - '}} {{$product->sizes[0]->price. '$'}}</span>
-                    
+
                     @foreach ($product->web_discount_codes as $dc)
                     <span class="discount-codes-web" style="color: var(--color-title); font-size: 14px; margin-left: 10px;"> Sale {{$dc->type_discount_amount == '%' ? $dc->discount_amount. '%' : $dc->discount_amount. '$'}}</span>
                     @endforeach
                 </div>
-    
+
                 <ul class="__information-product">
                     <span>Shop discount codes:</span>
-                    @foreach ($product->shop_discount_codes as $dc) 
+                    @foreach ($product->shop_discount_codes as $dc)
                         <li class="__discount-codes__item" data-discount="{{$dc->id}}">{{$dc->type_discount_amount == '%' ? $dc->discount_amount. '%' : $dc->discount_amount. '$'}}</li>
                     @endforeach
                 </ul>
-    
+
                 <div class="__information-product">
                     <span>Flavors</span>
                     <div class="__box-flavors product-flavors">
@@ -82,7 +82,7 @@
                         </ul>
                     </div>
                 </div>
-    
+
                 <div class="__information-product ">
                     <span>Sizes</span>
                     <div class="__box-flavors product-sizes">
@@ -94,7 +94,7 @@
                         </ul>
                     </div>
                 </div>
-    
+
                 <div class="__information-product">
                     <span>Quantity</span>
                     <div class="__quantity">
@@ -107,7 +107,7 @@
                         </div>
                     </div>
                 </div>
-    
+
                 <div class="__information-product">
                     <div class="__cart">
                         <div data-product="{{$product->id}}" class="_cart-add-cart">
@@ -120,9 +120,9 @@
                         </button>
                     </div>
                 </div>
-    
+
             </div>
-    
+
             <!-- Relevant Products -->
             <div class="relevant-products">
                 <div class="container__child-introduce">
@@ -139,7 +139,7 @@
                             <a href="{{$url_web}}/menu/products/product/{{str_replace(' ', '-', $prd['name'])}}?product={{$prd['id']}}" style="display: block; height: 100%;">
                                 <div style="height: 270px; overflow: hidden;">
                                     <p class="container__child-product__item-img"
-                                        style="background-image: url({{$prd['images'][0]['url']}})">
+                                        style="background-image: url({{$prd['image']}})">
                                     </p>
                                 </div>
                                 <div class="container__child-product__item-description">
@@ -148,7 +148,7 @@
                                         {{$prd['name']}}</h2>
                                     <p
                                         style="color: var(--color-light); text-overflow: ellipsis; overflow: hidden; -webkit-box-orient: vertical; display: -webkit-box; -webkit-line-clamp: 2;">
-                                        {{$prd['user']['address']}}</p>
+                                        {{$prd['shop']['address']}}</p>
                                     <div class="description__price-total" style="color: var(--color-light);">
                                         <p class="price" style="color: var(--color-light);">
                                             {{$prd['prices'][count($prd['prices']) -
@@ -181,7 +181,7 @@
         },
         handle: function(data, options) {},
     })
-    
+
     handleEventQuantityProduct({
         selector: {
             next: '.quantity-plus',
@@ -189,21 +189,21 @@
         },
         input: '#quantity',
     })
-    
+
     handleEventSelectedProduct({
         selector: '.product-flavors',
         item: '.__flavor-item',
         input: '.__is-flavor',
         attribute: 'data-type',
     })
-    
+
     handleEventSelectedProduct({
         selector: '.product-sizes',
         item: '.__flavor-item',
         input: '.__is-flavor',
         attribute: 'data-type',
     })
-    
+
     handleEventChangeImageMain({
         parent: '.container__list-img',
         imageMain: '.container__list-img__main',
@@ -269,9 +269,9 @@
                 })
             }else {
                 const isConfirm = confirm('Please log in to use the service')
-                if (isConfirm) 
+                if (isConfirm)
                     window.location.href = URLWeb +'/login'
-                    
+
             }
         }
     })
@@ -285,4 +285,3 @@
 @endsection
 
 
-    

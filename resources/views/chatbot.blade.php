@@ -58,7 +58,32 @@
                     </div>
                 </div>
             @elseif($type_child == 'quick_chat')
-                
+                <div class="form-message">
+                    <div class="message-icon">
+                        <img src="/img/message.png" alt="">
+                    </div>
+
+                    <div class="message-main">
+                        <div class="group-title">
+                            <div class="message-title">My quick message</div>
+                            <div class="message-subtitle">Quick messages allow you to create and use message templates that
+                                you frequently send to customers.</div>
+                        </div>
+                        <div class="message-settings">
+                            <div class="message-setting-info">
+                                <p class="text">Group Chat</p>
+                                <div class="button-button">
+                                    <div class="button-edit-message" id="edit">
+                                        <i class="fa-regular fa-pen-to-square"></i> <span>Edit</span>
+                                    </div>
+
+                                    <div class="button-on-off" id="on-off"></div>
+                                </div>
+                            </div>
+                            <p class="message-demo" id="message-demo">Hey yo what up bro</p>
+                        </div>
+                    </div>
+                </div>
             @endif
 
         </div>

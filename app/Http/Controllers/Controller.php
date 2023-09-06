@@ -46,7 +46,7 @@ class Controller extends BaseController
         $url = $request->getSchemeAndHttpHost();
         $shipping = new ShippingController();
         $request['customer'] = Auth::user()->id;
-        $request->status = str_replace('_', ' ', $request->status);
+        $request['status'] = str_replace('_', ' ', $request->status);
         $all_shipping = json_decode(json_encode($shipping->show_status_shipping_by_customer_id($request)), true);
         return view('waiting_confirmation')->with([
             'url_web' => $url,
@@ -70,7 +70,7 @@ class Controller extends BaseController
     public function show_web_shipping_information(Request $request, $address) {
         $url = $request->getSchemeAndHttpHost();
         $shipping = new ShippingController();
-        $request->customer = Auth::user()->id;
+        $request['customer'] = Auth::user()->id;
         $location = json_decode(json_encode($shipping->show_shipping_info_by_customer_id($request)), true);
 
         // return $location;
@@ -88,7 +88,7 @@ class Controller extends BaseController
     public function show_order_detail(Request $request) {
         $url = $request->getSchemeAndHttpHost();
         $shipping = new ShippingController();
-        $request->vendor = Auth::user()->id;
+        $request['vendor'] = Auth::user()->id;
         $location = json_decode(json_encode($shipping->show_shipping_info_by_customer_id($request)), true);
 
         // return $location;
@@ -106,8 +106,8 @@ class Controller extends BaseController
     public function show_pagination(Request $request) {
         $products = new ProductController();
         if(!$request->page) {
-            $request->page = 1;
-            $request->per_page = 12;
+            $request['page'] = 1;
+            $request['per_page'] = 12;
         }
         $result = json_decode(json_encode($products->handleGetProduct($request)), true);
 
@@ -124,11 +124,12 @@ class Controller extends BaseController
         $data = $response->getData();
 
         $products = new ProductController();
-        $request->page = mt_rand(1, 5);
-        $request->per_page = 4;
+        $request['page'] = mt_rand(1, 5);
+        $request['per_page'] = 4;
 
         $result = json_decode(json_encode($products->handleGetProduct($request)), true);
         $url = $request->getSchemeAndHttpHost();
+        // return ['data' => $data, 'products' => $result['original'][0]];
         return view('product')->with('product', $data)->with('url_web', $url)->with('products', $result['original'][0]);
         // return view('product')->with('product', $product->show($request->product, true))->with('url_web', $url);
         // return $data;
@@ -171,7 +172,7 @@ class Controller extends BaseController
         $products = $vendor->show_orders_vendor($request, $this->shopInfo());
 
         if(!$request->type)
-            $request->type = 'all';
+            $request['type'] = 'all';
         return view('order_vendor')->with([
             'url_web' => $url,
             'type' => 'order',
@@ -186,7 +187,7 @@ class Controller extends BaseController
         $products = $vendor->show_products_vendor($request, $this->shopInfo());
 
         if(!$request->type)
-            $request->type = 'all_product';
+            $request['type'] = 'all_product';
         return view('product_vendor')->with([
             'url_web' => $url,
             'type' => 'product',
@@ -282,9 +283,10 @@ class Controller extends BaseController
 
     public function show_cart(Request $request) {
         $url = $request->getSchemeAndHttpHost();
-        $request->customer_id = Auth::user()->id;
-        $cart = new VendorController();
+        $request['customer_id'] = Auth::user()->id;
+        $cart = new CartController();
         $products = $cart->show_cart($request);
+        // return $products;
         return view('cart')->with('url_web', $url)->with('products', $products);
     }
 

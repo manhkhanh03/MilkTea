@@ -10,11 +10,11 @@
     <div class="main">
         <div class="back-img"></div>
         <form action="" id="login" method="POST">
-    
+
             <h1
                 style="margin: 30px 0 70px; text-align: center; font-family: var(--font-family-title); color: var(--color-title); font-size: 40px;">
                 Login</h1>
-    
+
             <div class="form-group">
                 <label for="username" class="form-label">Username</label>
                 <input class="form-input" type="text" id="username" placeholder="Username">
@@ -26,16 +26,16 @@
                 <span class="form-forgot-pass">Forgot password?</span>
                 <p class="form-message"></p>
             </div>
-    
+
             <div class="form-remember-me">
                 <input type="checkbox" name="checkbox-remember-me" id="">
                 <span style="font-size: 15px;">Remember me</span>
             </div>
-    
+
             <button id="form-submit">Login</button>
-    
+
         </form>
-    
+
         <div class="register">
             <p>Not a member? <a href="register">Register now</a></p>
         </div>
@@ -74,7 +74,7 @@
                 handleApiMethodPost({
                     data: newData,
                     urlApi: '/milk/tea/login',
-                    urlWeb: '/home',    
+                    urlWeb: '/home',
                     formMessage: '.form-message',
                     cases: [
                         handleApiMethodPost.isSelectorFail('#username', 'Username already exists'),

@@ -42,7 +42,7 @@
                     <li class="nav-item"></li>
                 </ul>
             </div>
-    
+
             <ul class="list-products">
                 @if (!empty($products))
                     @foreach ($products as $product)
@@ -64,19 +64,19 @@
                                     id="">
                                 <p class="__item-product__child __item-product__total">{{$product['total']}}$</p>
                                 <p class="__item-product__child __item-product__delete">
-                                    <i style="cursor: pointer;" data-product="{{$product['cart_id']}}" class="fa-solid fa-xmark"></i>    
+                                    <i style="cursor: pointer;" data-product="{{$product['cart_id']}}" class="fa-solid fa-xmark"></i>
                                 </p>
-                                
+
                             </div>
                         </li>
                     @endforeach
-                @else 
+                @else
                     <li>No items in the shopping cart</li>
                 @endif
             </ul>
         </div>
     </section>
-    
+
     <section style="margin: 0;">
         <div class="container">
             <div class="container__cart-total">
@@ -103,7 +103,7 @@
                             <span>$</span>
                         </p>
                     </div>
-    
+
                     <div class="box-price total">
                         <p>TOTAL</p>
                         <p class="price ">
@@ -170,7 +170,7 @@
                     }
                 })
             }
-        }   
+        }
     })
 </script>
 @endpush
