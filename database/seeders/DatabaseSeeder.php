@@ -6,7 +6,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use App\Models\ProductImage;
 use App\Models\Shop;
-use App\Models\ProductSizeFlavor;
+use App\Models\MessageChatbot;
 
 class DatabaseSeeder extends Seeder
 {
@@ -15,22 +15,11 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        $shippingAddress = ['127.0.0.1',
-        '127.0.0.2',
-        '127.0.0.3',
-        '127.0.0.4',
-        '127.0.0.5',
-        '127.0.0.6',
-        '127.0.0.7'];
-
-        $status = ['awaiting approval', 'violation', 'confirmed', 'hide'];
-
-        foreach (range(1, 400) as $index) {
-            ProductSizeFlavor::create([
-                'product_id' => rand(1, 200),
-                'size_id' => rand(1, 3),
-                'flavor_id' => rand(1, 20),
-                'price' => rand(1.00, 10.00),
+        foreach (range(1, 22) as $index) {
+            MessageChatbot::create([
+                'chatbot_id' => rand(1, 23),
+                'content' => 'Hello bro',
+                'type' => 'quick_message',
             ]);
         }
     }

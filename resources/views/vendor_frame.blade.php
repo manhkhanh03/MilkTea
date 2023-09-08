@@ -145,7 +145,7 @@
                 <div class="sidebar-item  {{ $type == 'chatbot' ? 'active' : null }}">
                     <div class="sidebar-item__title">
                         <div class="sidebar-item__title-left">
-                            <div class="__title-left__img" style="background-image: url(/img/message.png);"></div>
+                            <div class="__title-left__img" style="background-image: url(/img/chat.png);"></div>
                             <div class="__title-left__name">Customer Service</div>
                         </div>
                         <i class="fa-solid fa-chevron-down btn-action"></i>

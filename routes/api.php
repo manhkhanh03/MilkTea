@@ -93,6 +93,11 @@ Route::prefix('/vendor')->group(function () {
         Route::post('/get/by/date/{shop_id}', 'App\Http\Controllers\Api\VendorController@totalDataSalesAnalysis');
         Route::post('/get/rank/{shop_id}', 'App\Http\Controllers\Api\VendorController@ranking');
     });
+
+    Route::prefix('chatbot')->group(function () {
+        Route::put('/{chatbot_id}', 'App\Http\Controllers\Api\ChatbotController@update');
+        Route::post('', 'App\Http\Controllers\Api\ChatbotController@store');
+    });
 });
 
 

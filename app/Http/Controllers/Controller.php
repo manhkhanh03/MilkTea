@@ -14,6 +14,7 @@ use App\Http\Controllers\Api\NotificationController;
 use App\Http\Controllers\Api\ProductViewController;
 use App\Http\Controllers\Api\VendorController;
 use App\Http\Controllers\Api\FlavorController;
+use App\Http\Controllers\Api\ChatbotController;
 use Illuminate\Support\Facades\Auth;
 use DateTime;
 use Carbon\Carbon;
@@ -39,6 +40,9 @@ class Controller extends BaseController
 
     public function show_login(Request $request) {
         $url = $request->getSchemeAndHttpHost();
+        if (Auth::check()) {
+            return redirect('/home')->with('url_web', $url);
+        }
         return view('login')->with('url_web', $url);
     }
 
@@ -292,10 +296,15 @@ class Controller extends BaseController
 
     public function chatbot(Request $request) {
         $url = $request->getSchemeAndHttpHost();
+        $chatbot = new ChatbotController();
+        $message = $chatbot->show($this->shopInfo(), $request->type);
+
         return view('chatbot')->with([
             'url_web'=> $url,
             'type' => 'chatbot',
             'type_child' => $request->type,
+            'chatbot' => $message,
+            'type_message' => $request->type,
         ]);
     }
 

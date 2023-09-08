@@ -29,17 +29,17 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        $request->password = Hash::make($request->password);
+        $request['password'] = Hash::make($request->password);
         $check_user = User::where('login_name', $request->login_name)->first();
         $check_email = User::where('email', $request->email)->first();
 
         if ($check_user)
             return response()->json(['status' => 'username'], 200, ['!OK']);
-        else if ($check_email) 
+        else if ($check_email)
             return response()->json(['status' => 'email'], 200, ['!OK']);
 
         $user =  User::create($request->all());
-        if ($user) 
+        if ($user)
             return response()->json($user, 200, ['OK']);
     }
 
@@ -67,7 +67,7 @@ class UserController extends Controller
     }
 
     public function update_password(Request $request, string $id)
-    {   
+    {
         $user = User::find($id);
 
         if (!Hash::check($request->current_password, $user->password)) {

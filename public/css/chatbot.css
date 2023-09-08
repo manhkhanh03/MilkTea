@@ -1,23 +1,24 @@
 .chatbot_box {
     width: 70%;
 }
-.heading-chatbot {
-}
+
+.heading-chatbot {}
+
 .subheading {
     font-size: 12px;
     font-weight: 400;
 }
+
 .message-function {
     margin: 30px 0;
     height: 40px;
     display: flex;
     justify-content: flex-start;
 }
-.message-function .auto {
 
-}
-.message-function .quick {
-}
+.message-function .auto {}
+
+.message-function .quick {}
 
 .message-function div {
     width: max-content;
@@ -86,6 +87,7 @@
     justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
+    border-bottom: 1px solid var(--color-title);
 }
 
 .message-setting-info .text {
@@ -136,6 +138,56 @@
 
 .message-demo {
     padding: 10px 30px;
-    border-top: 1px solid var(--color-title);
+    border-bottom: 1px solid #474747;
     color: #7f7f7f;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.message-demo .content {
+    width: 72%;
+}
+
+.message-demo .box-btn {
+    width: 20%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+#input-content {
+    border: 1px solid #b1b1b1;
+    outline: none;
+    border-radius: 4px;
+    height: 30px;
+    padding: 0 20px;
+}
+
+.message-demo .box-btn .icon {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+.button-edit-message button {
+    background-color: transparent;
+    border: none;
+    border-radius: 2px;
+    width: 80px;
+    height: 30px;
+    cursor: pointer;
+}
+
+.button-edit-message span,
+.button-edit-message i {
+    color: var(--color-white);
+}
+
+.button-edit-message .add-new-message {
+    background-color: var(--color-title);
+}
+
+.button-edit-message button:hover {
+    opacity: 1.2;
 }
