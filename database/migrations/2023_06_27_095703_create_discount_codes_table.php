@@ -13,13 +13,18 @@ return new class extends Migration
     {
         Schema::create('discount_codes', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('shop_id');
             $table->string('code', 100);
             $table->float('discount_amount');
+            $table->bigInteger('total');
             $table->string('type_discount_amount', 100); // $, %
             $table->dateTime('start_date')->default(DB::raw('CURRENT_TIMESTAMP'));
             $table->dateTime('end_date')->default(DB::raw('CURRENT_TIMESTAMP'));
-            $table->boolean('applies_to_all_products')->default(false);
+            $table->string('type_code')->default('Shopwide Voucher'); // Shopwide Voucher, Conditional, One-time
+            $table->string('status')->default('Expired'); // Active, Expired , Canceled,  Suspended
             $table->timestamps();
+
+            $table->foreign('shop_id')->references('id')->on('shops');
         });
     }
 

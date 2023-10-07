@@ -58,6 +58,9 @@ Route::prefix('vendor')->group(function () {
     });
     Route::get('/data/sales/analysis', 'App\Http\Controllers\Controller@show_sales_analysis')->middleware('auth');
     Route::get('/customer/service/chatbot', 'App\Http\Controllers\Controller@chatbot')->middleware('auth');
+    Route::prefix('discount/code')->group(function () {
+        Route::get('', 'App\Http\Controllers\Controller@discountCode')->middleware('auth');
+    });
 });
 
 Route::prefix('cart')->group(function () {
@@ -65,4 +68,3 @@ Route::prefix('cart')->group(function () {
 });
 
 Route::get('/test/mk', 'App\Http\Controllers\Controller@show_api')->middleware('auth');
-

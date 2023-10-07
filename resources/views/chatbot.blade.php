@@ -87,15 +87,18 @@
                                 </div>
                             </div>
                             <ul class="group-quick-message">
-                                @foreach ($chatbot as $key => $item)
-                                    <li class="message-demo" data-id-chatbot-message="{{ $item['chatbot_id'] }}">
-                                        <p class="content">{{ $item['content'] }}</p>
-                                        <div class="box-btn">
-                                            <p class="icon icon-pen" style="background-image: url(/img/pen.png)"></p>
-                                            <p class="icon icon-delete" style="background-image: url(/img/bin.png)"></p>
-                                        </div>
-                                    </li>
-                                @endforeach
+                                @if (!empty($chatbot))
+                                    @foreach ($chatbot as $key => $item)
+                                        <li class="message-demo"
+                                            data-id-chatbot-message="{{ $item['message_chatbot_id'] }}">
+                                            <p class="content">{{ $item['content'] }}</p>
+                                            <div class="box-btn">
+                                                <p class="icon icon-pen" style="background-image: url(/img/pen.png)"></p>
+                                                <p class="icon icon-delete" style="background-image: url(/img/bin.png)"></p>
+                                            </div>
+                                        </li>
+                                    @endforeach
+                                @endif
                             </ul>
                         </div>
                     </div>
@@ -118,6 +121,7 @@
             classList: 'active',
             chatbotId: @json(isset($chatbot[0]['chatbot_id']) ? $chatbot[0]['chatbot_id'] : $chatbot['chatbot_id']),
             type: @json($type_message),
+            selectorList: '.group-quick-message'
         })
 
         addMessage({
@@ -132,6 +136,24 @@
                     <p class="icon icon-delete" id="btn-delete" style="background-image: url(/img/bin.png)"></p>
                 </div>
             `,
+            chatbotId: @json($chatbotId),
+            urlApi: '/api/vendor/chatbot/message/chatbot',
+        })
+
+        deleteMessage({
+            btnDelete: '.message-demo .icon-delete',
+            attribute: 'data-id-chatbot-message',
+            urlApi: '/api/vendor/chatbot/message/chatbot/'
+        })
+
+        editMessage({
+            btnEdit: '.message-demo .icon-pen',
+            btnSave: '.message-demo .icon-save',
+            attribute: 'data-id-chatbot-message',
+            urlApi: '/api/vendor/chatbot/message/chatbot/',
+            classContent: '.content',
+            chatbotId: @json($chatbotId),
+            iconEdit: '.icon-pen'
         })
     </script>
 @endpush

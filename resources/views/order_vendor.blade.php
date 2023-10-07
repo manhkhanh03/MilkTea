@@ -62,7 +62,7 @@
                 <div class="__search-info__type">
                     <p class="__type__name-type">All</p>
                     <ul class="__type__list-type">
-                        <li class="__list-type__item">All</li>
+                        <li class="__list-type__item active">All</li>
                         <li class="__list-type__item">Order ID</li>
                         <li class="__list-type__item">Customer name</li>
                         <li class="__list-type__item">Product</li>

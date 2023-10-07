@@ -74,8 +74,7 @@ class OrderController extends Controller
             ->select('type_discount_amount', 'discount_amount')
             ->get();
 
-         $web_discount_codes = DiscountCode::where('applies_to_all_products', 1)
-            ->where('start_date', '<=', $current_date)
+         $web_discount_codes = DiscountCode::where('start_date', '<=', $current_date)
             ->where('end_date', '>=', $current_date)
             ->select('type_discount_amount', 'discount_amount')
             ->get();

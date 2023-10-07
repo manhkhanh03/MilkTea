@@ -130,7 +130,7 @@
                         Tea</h1>
                     <h1 style="font-size: 40px;padding: 6px 0 30px; line-height: 0;">Other Products</h1>
                     <button>
-                        <a href="">View Full Products</a> <!-- ???????? view now-->
+                        <a href="{{$url_web}}/menu/products">View Full Products</a> 
                     </button>
                 </div>
                 <ul class="relevant-products__child">

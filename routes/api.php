@@ -24,12 +24,11 @@ Route::prefix('cart')->group(function () {
     Route::post('', 'App\Http\Controllers\Api\CartController@store');
     Route::post('/token', 'App\Http\Controllers\Api\CartController@createTokenCart');
     Route::delete('/{id}', 'App\Http\Controllers\Api\CartController@destroy');
-
 });
 
 Route::prefix('user')->group(function () {
     Route::get('', 'App\Http\Controllers\Api\UserController@index');
-    Route::get('/profile/{id}', 'App\Http\Controllers\Api\UserController@show') ;
+    Route::get('/profile/{id}', 'App\Http\Controllers\Api\UserController@show');
     Route::post('', 'App\Http\Controllers\Api\UserController@store');
     Route::put('/{id}', 'App\Http\Controllers\Api\UserController@update');
     Route::put('/password/{id}', 'App\Http\Controllers\Api\UserController@update_password');
@@ -97,9 +96,17 @@ Route::prefix('/vendor')->group(function () {
     Route::prefix('chatbot')->group(function () {
         Route::put('/{chatbot_id}', 'App\Http\Controllers\Api\ChatbotController@update');
         Route::post('', 'App\Http\Controllers\Api\ChatbotController@store');
+        Route::post('/message/chatbot', 'App\Http\Controllers\Api\ChatbotController@storeMessageChatbot');
+        Route::delete('/message/chatbot/{message_chatbot}', 'App\Http\Controllers\Api\ChatbotController@destroyMessageChatbot');
+        Route::put('/message/chatbot/{message_chatbot}', 'App\Http\Controllers\Api\ChatbotController@updateMessageChatbot');
+    });
+
+    Route::prefix('discount/code')->group(function () {
+        Route::get('/{shop_id}/{status?}', 'App\Http\Controllers\Api\DiscountCodeController@getByShopId');
+        Route::post('/search', 'App\Http\Controllers\Api\DiscountCodeController@search');
+
     });
 });
-
 
 Route::get('test', 'App\Http\Controllers\Api\VendorController@show_products_vendor');
 Route::get('test/test', 'App\Http\Controllers\Api\VendorController@finance');

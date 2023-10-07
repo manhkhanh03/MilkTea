@@ -9,17 +9,17 @@
 @push('body-products')
     <div class="info-profile purchase-order__products">
         <ul class="__header purchase-order__header">
-            <li class="__header-item await-shipping {{ $type == 'waiting_confirmation' ? 'active' : '' }}">
+            <li class="__header-item await-shipping {{ $type == 'waiting confirmation' ? 'active' : '' }}">
                 <a href="{{ $url_web }}/user/purchase/order?status=waiting_confirmation">
                     Waiting confirmation
                 </a>
             </li>
-            <li class="__header-item await-shipping  {{ $type == 'awaiting_delivery' ? 'active' : '' }}">
+            <li class="__header-item await-shipping  {{ $type == 'awaiting delivery' ? 'active' : '' }}">
                 <a href="{{ $url_web }}/user/purchase/order?status=awaiting_delivery">
                     Await delivery
                 </a>
             </li>
-            <li class="__header-item in-delivery {{ $type == 'in_delivery' ? 'active' : '' }}">
+            <li class="__header-item in-delivery {{ $type == 'in delivery' ? 'active' : '' }}">
                 <a href="{{ $url_web }}/user/purchase/order?status=in_delivery">
                     In delivery
                 </a>
@@ -94,4 +94,7 @@
         </ul>
 
     </div>
+    <script>
+        console.log(@json($type))
+    </script>
 @endpush

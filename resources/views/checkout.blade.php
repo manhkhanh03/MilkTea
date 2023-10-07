@@ -267,7 +267,7 @@
                         is_success = true
                         if(is_success) {
                             alert('Order successful')
-                            window.location.href = @json($url_web) + `/user/waiting_confirmation?customer=${@json($user->id)}&status=Waiting confirmation`;
+                            window.location.href = @json($url_web) + `/user/purchase/order?status=waiting_confirmation`;
                         }
                     }
                 })

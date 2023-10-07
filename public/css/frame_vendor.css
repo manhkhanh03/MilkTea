@@ -400,9 +400,13 @@ body .daterangepicker .drp-buttons {
 
 .__type__list-type li {
     padding: 6px 12px;
-    color: var(--color-title);
+    
     cursor: pointer;
     transition: all .25s ease;
+}
+
+.__type__list-type li.active {
+    color: var(--color-title);
 }
 
 .__type__list-type li:hover {

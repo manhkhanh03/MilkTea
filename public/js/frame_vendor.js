@@ -26,25 +26,29 @@ function handleEventChangeTypeSearch(options) {
 
     listTypeSearch.forEach((__this, index) => {
         __this.onclick = (event) => {
+            const parentTypeSearch = __this.parentNode
+            parentTypeSearch.querySelector('.active').classList.remove('active')
+            __this.classList.add('active')
             displayText.innerHTML = event.target.innerHTML
-            placeholder.placeholder = event.target.innerHTML
+            if (placeholder)
+                placeholder.placeholder = event.target.innerHTML
         }
     });
 }
 
 function handleSearch(options) {
-    const date = document.querySelector(options.date); 
+    const date = document.querySelector(options.date);
     let startDate
     let endDate
     let startDateString
     let endDateString
     if (date) {
         const dateRange = date.value
-        const dateParts = dateRange.split(" - "); 
-    
+        const dateParts = dateRange.split(" - ");
+
         startDateString = dateParts[0];
         endDateString = dateParts[1];
-    
+
         startDate = moment(startDateString, "MM/DD/YYYY").format("YYYY/MM/DD");
         endDate = moment(endDateString, "MM/DD/YYYY").format("YYYY/MM/DD");
     }
@@ -53,7 +57,7 @@ function handleSearch(options) {
     let data_search
     let btnSearch = document.querySelector(options.btnSearch)
     let btnReset = document.querySelector(options.btnReset)
-    
+
     btnSearch.addEventListener('click', function () {
         startDate = moment(startDateString, "MM/DD/YYYY").format("YYYY/MM/DD");
         endDate = moment(endDateString, "MM/DD/YYYY").format("YYYY/MM/DD");
@@ -104,7 +108,7 @@ function handleClickButton(options) {
                         console.error('error: ', error)
                     })
             }
-         })
+        })
 
         // btnEdit[key].addEventListener('click', function (event) {
         //     console.log(event.target)

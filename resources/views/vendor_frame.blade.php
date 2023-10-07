@@ -54,10 +54,7 @@
                     </div>
                     <ul class="sidebar-item__list-function">
                         <li class="__list-function-item">
-                            All product
-                        </li>
-                        <li class="__list-function-item">
-                            A product
+                            <a href="{{$url_web}}/vendor/discount/code">My discount code</a>
                         </li>
                     </ul>
                 </div>

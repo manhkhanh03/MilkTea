@@ -15,6 +15,8 @@ use App\Http\Controllers\Api\ProductViewController;
 use App\Http\Controllers\Api\VendorController;
 use App\Http\Controllers\Api\FlavorController;
 use App\Http\Controllers\Api\ChatbotController;
+use App\Http\Controllers\Api\DiscountCodeController;
+use App\Models\DiscountCode;
 use Illuminate\Support\Facades\Auth;
 use DateTime;
 use Carbon\Carbon;
@@ -46,7 +48,7 @@ class Controller extends BaseController
         return view('login')->with('url_web', $url);
     }
 
-    public function show_web_order(Request $request) {
+    public function show_web_order(Request $request) {  
         $url = $request->getSchemeAndHttpHost();
         $shipping = new ShippingController();
         $request['customer'] = Auth::user()->id;
@@ -299,26 +301,39 @@ class Controller extends BaseController
         $chatbot = new ChatbotController();
         $message = $chatbot->show($this->shopInfo(), $request->type);
 
+        $chatbotID = $chatbot->getChatbotID($this->shopInfo());
+
         return view('chatbot')->with([
             'url_web'=> $url,
             'type' => 'chatbot',
             'type_child' => $request->type,
             'chatbot' => $message,
             'type_message' => $request->type,
+            'chatbotId' => $chatbotID['id'],
+        ]);
+    }
+    
+    public function discountCode(Request $request) {
+        $url = $request->getSchemeAndHttpHost();
+        $discount = new DiscountCodeController();
+        $status = $request->status;
+        if(!isset($request->status))
+            $status = 'all';
+
+        $discounts = $discount->getByShopId($this->shopInfo(), $status);
+
+        return view('discount_code')->with([
+            'url_web'=> $url,
+            'type' => 'discount_code',
+            'discounts' => $discounts,
+            'status' => $status,
         ]);
     }
 
     public function show_api(Request $request) {
-        $startDate = date('Y-m-01');
-        $beforeDate = date('Y-m-d', strtotime('-1 day', strtotime($startDate)));
-        $endDate = date('Y-m-d');
-        $request['startDate'] = '2023-08-01';
-        $request['beforeDate'] = '2023-07-01';
-        $request['endDate'] = '2023-08-31';
-        $request['dashboardTypeSelect'] = 'by revenue';
-        $order = new VendorController();
-        $products = $order->totalDataSalesAnalysis($request, $this->shopInfo());
+        $discount = new DiscountCodeController();
+        // $discountCode = $discount->getByShopId($this->shopInfo());
 
-        return $products;
+        // return $discountCode;
     }
 }
