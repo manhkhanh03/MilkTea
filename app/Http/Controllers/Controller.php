@@ -213,9 +213,9 @@ class Controller extends BaseController
             if (empty($product_check)) {
                 return $this->show_product_vendor($request);
             }
+            $request['type'] = $product_detail['psf'][0]['type'];
         }
 
-        $request['type'] = $product_detail['psf'][0]['type'];
         $flavor = new FlavorController();
         $flavors = $flavor->get($request);
 
@@ -327,6 +327,16 @@ class Controller extends BaseController
             'type' => 'discount_code',
             'discounts' => $discounts,
             'status' => $status,
+        ]);
+    }
+    
+    public function addDiscountCode(Request $request) {
+        $url = $request->getSchemeAndHttpHost();
+        $usecase = str_replace("-", ' ', $request->usecase);
+        
+        return view('add_discount_code')->with([
+            'url_web' => $url,
+            'usecase' => $usecase,
         ]);
     }
 

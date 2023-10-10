@@ -42,24 +42,25 @@ Route::prefix('notification')->group(function () {
 });
 
 Route::prefix('vendor')->group(function () {
-    Route::get('/home', 'App\Http\Controllers\Controller@show_vendor')->name('home_vendor')->middleware('auth');
+    Route::get('/home', 'App\Http\Controllers\Controller@show_vendor')->name('home_vendor')->middleware('can:is-vendor');
     Route::prefix('order')->group(function () {
-        Route::get('', 'App\Http\Controllers\Controller@show_order')->name('order_vendor')->middleware('auth');
-        Route::get('/detail', 'App\Http\Controllers\Controller@show_order_detail')->middleware('auth');
+        Route::get('', 'App\Http\Controllers\Controller@show_order')->name('order_vendor')->middleware('auth')->middleware('can:is-vendor');
+        Route::get('/detail', 'App\Http\Controllers\Controller@show_order_detail')->middleware('auth')->middleware('can:is-vendor');
     });
     Route::prefix('product')->group(function () {
-        Route::get('', 'App\Http\Controllers\Controller@show_product_vendor')->name('product_vendor')->middleware('auth');
-        Route::get('/add/new', 'App\Http\Controllers\Controller@show_add_product')->name('add_product_vendor')->middleware('auth');
-        Route::get('/edit', 'App\Http\Controllers\Controller@show_add_product')->name('edit_product_vendor')->middleware('auth');
+        Route::get('', 'App\Http\Controllers\Controller@show_product_vendor')->name('product_vendor')->middleware('auth')->middleware('can:is-vendor');
+        Route::get('/add/new', 'App\Http\Controllers\Controller@show_add_product')->name('add_product_vendor')->middleware('auth')->middleware('can:is-vendor');
+        Route::get('/edit', 'App\Http\Controllers\Controller@show_add_product')->name('edit_product_vendor')->middleware('auth')->middleware('can:is-vendor');
     });
     Route::prefix('finance')->group(function () {
-        Route::get('/income', 'App\Http\Controllers\Controller@show_finance_income')->name('income')->middleware('auth');
-        Route::get('/account/balance', 'App\Http\Controllers\Controller@show_finance_balance')->name('income')->middleware('auth');
+        Route::get('/income', 'App\Http\Controllers\Controller@show_finance_income')->name('income')->middleware('auth')->middleware('can:is-vendor');
+        Route::get('/account/balance', 'App\Http\Controllers\Controller@show_finance_balance')->name('income')->middleware('auth')->middleware('can:is-vendor');
     });
-    Route::get('/data/sales/analysis', 'App\Http\Controllers\Controller@show_sales_analysis')->middleware('auth');
-    Route::get('/customer/service/chatbot', 'App\Http\Controllers\Controller@chatbot')->middleware('auth');
+    Route::get('/data/sales/analysis', 'App\Http\Controllers\Controller@show_sales_analysis')->middleware('auth')->middleware('can:is-vendor');
+    Route::get('/customer/service/chatbot', 'App\Http\Controllers\Controller@chatbot')->middleware('auth')->middleware('can:is-vendor');
     Route::prefix('discount/code')->group(function () {
-        Route::get('', 'App\Http\Controllers\Controller@discountCode')->middleware('auth');
+        Route::get('', 'App\Http\Controllers\Controller@discountCode')->middleware('auth')->middleware('can:is-vendor');
+        Route::get('/voucher/new', 'App\Http\Controllers\Controller@addDiscountCode')->middleware('can:is-vendor');
     });
 });
 

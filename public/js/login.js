@@ -145,3 +145,26 @@ handleImport.isConfirmPassword = function (selector, message, password) {
         }
     }
 }
+
+handleImport.isMaximumBuyer = function (selector, message, message2, total) {
+    return {
+        selector: selector,
+        test: function (value) {
+            const totalSelector = document.querySelector(total).value
+            return totalSelector >= value ? ( value == 0 || value > 200000  ? message2 : undefined) : message 
+        }
+    }
+}
+
+handleImport.isTypeDiscount = function (selector, messageType$, messageTypePercent, type, arr) {
+    return {
+        selector: selector,
+        test: function(value) {
+            const typeElement = document.querySelector(type).innerText
+            if (typeElement === '$') {
+                return value >= arr[0] && value <= arr[1] ? undefined : messageType$;
+            } 
+            return value >= arr[2] && value <= arr[3] ? undefined : messageTypePercent;
+        }
+    }
+}

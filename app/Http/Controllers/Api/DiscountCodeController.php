@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\DiscountCode;
+use App\Models\Shop;
 use App\Models\DiscountCodeHasProduct;
 
 class DiscountCodeController extends Controller
@@ -60,11 +61,13 @@ class DiscountCodeController extends Controller
 
     public function search(Request $request) {    
         $status = $request->status;    
+        $shopId = Shop::where('user_id', $request->user_id)->get('id');
         $discount = DiscountCode::when(true, function($q) use($request) {
-                if ($request->has('code'))
-                    return $q->where('code', 'LIKE', '%' . $request->code . '%');
+                if ($request->has('name'))
+                    return $q->where('name_discount_code', 'LIKE', '%' . $request->name . '%');
                 else return $q->find($request->id);
             })
+            ->where('shop_id', $shopId[0]->id)
             ->when($status != 'all', function ($q) use ($status) {
                 return $q->where('status', $status);
             })

@@ -239,16 +239,20 @@ function handleEventAddCharacter(options) {
     input.forEach(function (__this, index) {
         __this.addEventListener('input', function (e) {
             if (lastValue.length > e.target.value.length) {
+                console.log(lastValue.length, e.target.value.length)
                 let length = Number(quantity[index].innerText) - (lastValue.length - e.target.value.length)
                 quantity[index].innerText = length
                 e.target.style.borderColor = '#c8a16d'
             } else {
+                console.log(lastValue.length, e.target.value.length)
                 if (quantity[index].innerText <= 120) {
                     quantity[index].innerText = Number(quantity[index].innerText) + 1
                 }
                 if (Number(quantity[index].innerText) >= 118) {
                     e.target.style.borderColor = '#e04141'
                 }
+
+                e.target.value = e.target.value.slice(0, 120);
             }
             lastValue = e.target.value
         })

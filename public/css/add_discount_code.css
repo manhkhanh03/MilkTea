@@ -1,0 +1,124 @@
+.body-discount-code {
+    width: 60%;
+}
+
+.input-basic,
+.name-voucher-code {
+    flex: 2;
+    background-color: transparent !important;
+    padding: 6px 14px;
+    outline: none;
+    border: 1px solid var(--color-title);
+    border-radius: 4px;
+    -moz-appearance: textfield;
+}
+
+.name-voucher-code {
+    flex: 0;
+    border-right: none;
+}
+
+.form-noti {
+    color: #b1b1b1;
+    position: absolute;
+    font-size: 12px;
+    top: 48px;
+}
+
+.form-message {
+    top: 36px;
+}
+
+.__add-product__right {
+    margin-bottom: 42px;
+}
+
+.body__add-product .header {
+    font-size: 22px;
+}
+
+/* datepicker */
+.daterangepicker select.hourselect,
+.daterangepicker select.minuteselect,
+.daterangepicker select.secondselect,
+.daterangepicker select.ampmselect {
+    background-color: #6a5435;
+    border-color: #6a5435;
+    border-radius: 4px;
+    color: #b1b1b1;
+}
+.type-left {
+    flex: 1;
+    position: relative;
+}
+
+.type-right {
+    flex: 2;
+    display: flex;
+    align-items: center;
+    border: 1px solid var(--color-title);
+    border-radius: 4px;
+    max-height: 34px;
+}
+
+.type-right .type-dis {
+    width: 15%;
+    display: inline-block;
+    text-align: center;
+    position: relative;
+}
+
+.type-right .type-dis::after {
+    content: "";
+    position: absolute;
+    height: 80%;
+    width: 1px;
+    right: 0;
+    top: 4px;
+    background-color: #b1b1b1;
+}
+
+.type-right input {
+    width: 80%;
+    border: none;
+}
+
+.list-type-left {
+    display: none;
+    position: absolute;
+    border: 1px solid #b1b1b1;
+    border-radius: 6px;
+    right: 0;
+    top: 36px;
+    width: 100%;
+    background-color: #120f14;
+    left: 0;
+    padding: 6px 10px;
+    background-image: url(https://preview.colorlib.com/theme/coffeeblend/images/bg_4.jpg.webp);
+    z-index: 999;
+    background-size: auto;
+}
+
+.list-type-left.active {
+    display: block;
+}
+
+.header-item {
+    cursor: pointer;
+    border: 1px solid #b1b1b1;
+    border-radius: 4px;
+    width: 100%;
+    display: flex;
+    height: 34px;
+    align-items: center;
+    justify-content: center;
+    border-right: none;
+}
+
+.item-type-left {
+    cursor: pointer;
+}
+
+span.item-appicable {
+    color: yellow;
+}

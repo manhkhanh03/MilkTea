@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('discount_codes', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('shop_id');
+            $table->string('name_discount_code', 100);
             $table->string('code', 100);
             $table->float('discount_amount');
             $table->bigInteger('total');

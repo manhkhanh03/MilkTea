@@ -27,11 +27,11 @@ class AuthServiceProvider extends ServiceProvider
         $this->registerPolicies();
         
         Gate::define('is-vendor', function ($user) {
-            return $user->role_id == 2;
+            return $user->role_id == 2 || $user->role_id == 4;
         });
 
         Gate::define('is-delivery_staff', function ($user) {
-            return $user->role_id == 3;
+            return $user->role_id == 3 || $user->role_id == 4;
         });
 
         Gate::define('is-admin', function ($user) {

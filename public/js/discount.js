@@ -52,11 +52,12 @@ function search(options, callback) {
     function handle() {
         const typeSearch = document.querySelector(options.type).innerText
         const data = {
-            status: options.status
+            status: options.status,
+            user_id: options.user_id
         }
 
         if (typeSearch.includes('name'))
-            data.code = input.value
+            data.name = input.value
         else data.id = input.value
         axios.post(options.urlApi, data)
             .then(response => response.data)
@@ -89,7 +90,7 @@ function search(options, callback) {
 
 function html(data) {
     return `<tr class="tr">
-        <td class="table-cell-body table-td__th">${data.code}</td>
+        <td class="table-cell-body table-td__th">${ data.name_discount_code + " | " + data.code}</td>
         <td class="table-cell-body table-td__th">${data.type_code}</td>
         <td class="table-cell-body table-td__th">${data.discount_amount}
         </td>

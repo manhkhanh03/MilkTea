@@ -147,7 +147,6 @@
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/date-fns/1.30.1/date_fns.min.js" referrerpolicy="no-referrer"></script>
     <script>
-        console.log(@json($finance))
         const formattedDate = dateFns.parse(@json($startDate).replaceAll('-', '/'), 'yyyy/MM/dd', new Date());
         $('input[name="dates"]').daterangepicker({
             startDate: dateFns.format(formattedDate, 'yyyy-MM-dd'),

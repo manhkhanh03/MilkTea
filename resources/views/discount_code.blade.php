@@ -43,7 +43,7 @@
                 </h1>
                 <ul class="list-type__discount">
                     <li class="type__discount-item">
-                        <a href="{{ $url_web }}/vendor/">
+                        <a href="{{ $url_web }}/vendor/discount/code/voucher/new?usecase=shopwide-voucher">
                             <div class="__discount-item__header">
                                 <p class="__header-img" style="background-image: url(/img/shop.png)"></p>
                                 <div class="__header-header">Shopwide voucher</div>
@@ -55,7 +55,7 @@
                         </a>
                     </li>
                     <li class="type__discount-item">
-                        <a href="{{ $url_web }}/vendor/">
+                        <a href="{{ $url_web }}/vendor/discount/code/voucher/new?usecase=product-voucher">
                             <div class="__discount-item__header">
                                 <p class="__header-img" style="background-image: url(/img/box.png)"></p>
                                 <div class="__header-header">Product voucher</div>
@@ -67,7 +67,7 @@
                         </a>
                     </li>
                     <li class="type__discount-item">
-                        <a href="{{ $url_web }}/vendor/">
+                        <a href="{{ $url_web }}/vendor/discount/code/voucher/new?usecase=voucher-new-customer">
                             <div class="__discount-item__header">
                                 <p class="__header-img" style="background-image: url(/img/avatar.png)"></p>
                                 <div class="__header-header">Voucher new customers</div>
@@ -80,7 +80,7 @@
                         </a>
                     </li>
                     <li class="type__discount-item">
-                        <a href="{{ $url_web }}/vendor/">
+                        <a href="{{ $url_web }}/vendor/discount/code/voucher/new?usecase=repeat-customer-voucher">
                             <div class="__discount-item__header">
                                 <p class="__header-img" style="background-image: url(/img/return.png)"></p>
                                 <div class="__header-header">Repeat customer voucher</div>
@@ -178,7 +178,7 @@
                                 @if (count($discounts) != 0)
                                     @foreach ($discounts as $key => $discount)
                                         <tr class="tr">
-                                            <td class="table-cell-body table-td__th">{{ $discount->code }}</td>
+                                            <td class="table-cell-body table-td__th">{{ $discount->name_discount_code . " | " . $discount->code }}</td>
                                             <td class="table-cell-body table-td__th">{{ $discount->type_code }}</td>
                                             <td class="table-cell-body table-td__th">{{ $discount->discount_amount }}
                                             </td>
@@ -269,6 +269,7 @@
             urlApi: '/api/vendor/discount/code/search',
             display: '#table-body',
             status: @json($status),
+            user_id: @json($user['id']),
             callback: {
                 settings: '.action-discount',
                 table: '.body-container',

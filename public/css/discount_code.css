@@ -240,6 +240,7 @@ div.header-container,
 .table-list-discount .table-cell-body:first-child,
 .table-list-discount .table-cell-body:last-child {
     position: sticky !important;
+    overflow: hidden;
 }
 
 .action-discount {
